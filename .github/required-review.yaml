@@ -6,10 +6,10 @@
    - '!projects/plugins/*/composer.lock'
    - '!projects/plugins/*/composer.json'
    - '!projects/plugins/*/changelog/*'
-  teams: @matthewsullivan-instacart
+  teams: matthewsullivan-instacart
 
 # Jetpack Approvers review everything that hasn't been specifically assigned above.
 # This needs to be last.
 - name: Default to Jetpack Approvers
   paths: unmatched
-  teams: @sullivanmatt
+  teams: sullivanmatt
