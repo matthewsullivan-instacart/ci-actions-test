@@ -13,7 +13,7 @@ jobs:
     timeout-minutes: 1
     steps:
       - uses: actions/checkout@v3
-      - uses: matthewsullivan-instacart/action-required-review
+      - uses: matthewsullivan-instacart/action-required-review@trunk
         name: Check for required review approval
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
