@@ -19,6 +19,7 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           requirements-file: .github/security-review.yaml
           status: Security review required. Go to slack and beg for help.
+          fail: true
 
   security_team_review:
     runs-on: ubuntu-latest
@@ -34,4 +35,5 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           requirements-file: .github/security-team-review.yaml
           status: This change has triggered a special review. Please reach out to security.
+          fail: true
 
