@@ -18,7 +18,7 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           requirements-file: .github/security-review.yaml
-          status: Security review required; ask a team member or reach out in #ask-security
+          status: "Security review required; ask a team member or reach out in #ask-security"
           fail: true
 
   security_team_review:
@@ -34,6 +34,6 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           requirements-file: .github/security-team-review.yaml
-          status: Security team review required; please ask in #ask-security
+          status: "Security team review required; please ask in #ask-security"
           fail: true
 
