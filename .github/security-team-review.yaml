@@ -1,0 +1,10 @@
+# real-world example at https://github.com/Automattic/jetpack/blob/trunk/.github/files/required-review.yaml
+
+- name: Project 2 VaultPress & Backup (only sec team)
+  paths:
+   - 'projects/packages/**'
+   - '!projects/plugins/*/composer.lock'
+   - '!projects/plugins/*/composer.json'
+   - '!projects/plugins/*/changelog/*'
+  teams:
+    - "@matthewsullivan-instacart"

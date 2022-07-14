@@ -1,0 +1,39 @@
+name: Security review
+on:
+  pull_request_review:
+  pull_request:
+    types: [ opened, reopened, synchronize ]
+
+jobs:
+  security_review:
+    runs-on: ubuntu-latest
+    # GitHub should provide a "pull_request_review_target", but they don't and
+    # the action will fail if run on a forked PR.
+    if: github.event.pull_request.head.repo.full_name == github.event.pull_request.base.repo.full_name
+    timeout-minutes: 1
+    steps:
+      - uses: actions/checkout@v3
+      - uses: matthewsullivan-instacart/action-required-review@trunk
+        name: Check for required review approval
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          requirements-file: .github/security-review.yaml
+          status: "Security review required; ask a team member or reach out in #ask-security"
+          fail: true
+
+  security_team_review:
+    runs-on: ubuntu-latest
+    # GitHub should provide a "pull_request_review_target", but they don't and
+    # the action will fail if run on a forked PR.
+    if: github.event.pull_request.head.repo.full_name == github.event.pull_request.base.repo.full_name
+    timeout-minutes: 1
+    steps:
+      - uses: actions/checkout@v3
+      - uses: matthewsullivan-instacart/action-required-review@trunk
+        name: Check for required review approval
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          requirements-file: .github/security-team-review.yaml
+          status: "Security team review required; please ask in #ask-security"
+          fail: true
+
